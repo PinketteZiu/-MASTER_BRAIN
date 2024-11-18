@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 250px 0;
+  border-bottom: #72e9c5;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-style: solid;
+}
+.banner h2 {
+    margin: 0;
+    color: rgb(242, 71, 197);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 28px;
+    font-weight: bold;
+    // text-align: center;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    transform: translate(-17%, -20%);
+  }
+
+.banner p {
+    font-size: 20px;
+    color: rgb(242, 71, 197);
+    opacity: .7;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+    // .banner .boutons {
+    //   position: relative;
+    //   bottom: 10px;
+    // }
+
+h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+body{
+background-color: #e7e064
+}
