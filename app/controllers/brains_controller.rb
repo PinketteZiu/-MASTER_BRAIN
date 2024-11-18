@@ -13,18 +13,21 @@ class BrainsController < ApplicationController
   end
 
   def create
-    @brain =Brain.new(brain_params)
-    @brain.user_id = set_user.id
+    @user = current_user
+    @brain = Brain.new(brain_params)
+    @brain.user_id = current_user.id
+    Rails.logger.debug "Brain before save: #{@brain.inspect}"
     if @brain.save
-      redirect_to brains_to_path()
+      redirect_to brains_path
     else
+      Rails.logger.debug "Brain save failed: #{@brain.errors.full_messages.join(', ')}"
       render :new, status: :unprocessable_entity
     end
   end
 
-  def my_brain
-    @brain = Brain.find_by(user_id: current_user.id)
-  end
+  # def my_brain
+  #   @brain = Brain.find_by(user_id: current_user.id)
+  # end
 
   def destroy
     @brain = Brain.find_by(user_id: current_user.id)
@@ -35,10 +38,10 @@ class BrainsController < ApplicationController
     @brain = Brain.find(params[:id])
   end
 
-  def set_user
-    return unless session[:user_id]
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
+  # def set_user
+  #   return unless session[:user_id]
+  #   @current_user ||= User.find_by(id: session[:user_id])
+  # end
 
   private
 
