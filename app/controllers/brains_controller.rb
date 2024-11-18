@@ -14,7 +14,7 @@ class BrainsController < ApplicationController
 
   def create
     @brain =Brain.new(brain_params)
-    @brain.user_id = current_user
+    @brain.user_id = set_user.id
     if @brain.save
       redirect_to brains_to_path()
     else
@@ -33,6 +33,11 @@ class BrainsController < ApplicationController
 
   def set_brain
     @brain = Brain.find(params[:id])
+  end
+
+  def set_user
+    return unless session[:user_id]
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   private
