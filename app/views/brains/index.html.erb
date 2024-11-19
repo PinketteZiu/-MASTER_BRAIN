@@ -1,11 +1,23 @@
-<h1>Tous les cerveaux</h1>
+<div class="container">
+  <h1>Tous nos cerveaux</h1>
 
-<div>
-<% @brains.each do |brain|%>
-  <h2> <%= brain.name%> </h2>
-  <p> <%= brain.address%> </p>
-  <p> <%= brain.longitude%> </p>
-  <p> <%= brain.latitude%> </p>
-  <p> <%= brain.user_id%> </p>
-<% end %>
- </div>
+  <div>
+    <iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-12.1728515625%2C37.89219554724437%2C8.393554687500002%2C48.647427805533546&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+  </div>
+
+  <div> FILTRE </div>
+
+  <p><em> Dispo pour toi : </em></p>
+    <div class="cards">
+      <% @brains.each do |brain|%>
+        <div class="card-trip">
+          <%= link_to brain_path(brain), class: "text-decoration-none" do %>
+            <%= image_tag "cerveau1.png" %>
+            <h2><%= brain.name %> </h2>
+            <p><%= brain.address %> </p>
+            <p><%= brain.price %></p>
+          <% end %>
+        </div>
+       <% end %>
+    </div>
+</div>
