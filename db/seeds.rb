@@ -14,7 +14,7 @@ require 'faker'
 end
 
 30.times do
-  Brain.create!(name: Faker::Cannabis.cannabinoid, price: Faker::Number.number, address: Faker::Address.city, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude, user: User.all.sample)
+  Brain.create!(name: Faker::Lorew.sentence(word_count: rand(2..5)), price: Faker::Number.number(3), address: Faker::Address.city, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude, user: User.all.sample)
 end
 
 20.times do
