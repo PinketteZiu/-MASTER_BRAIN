@@ -1,7 +1,14 @@
-<h1>This brain</h1>
+<h1>Check ce cerveau de malade</h1>
 
-<p> <%= @brain.name%> </p>
-<p> <%= @brain.address%> </p>
-<p> <%= @brain.latitude%> </p>
-<p> <%= @brain.longitude%> </p>
-<p> <%= @brain.user_id%> </p>
+<div class='container'>
+<div class="card-product">
+  <%= image_tag 'cerveau2' %>
+  <div class="card-product-infos">
+    <h2><%=@brain.name%> </h2>
+    <p><%= @brain.address%> </p>
+    <p><%= @brain.price%>€</p>
+    <p><%= @brain.user.first_name%> <%= @brain.user.last_name%></p>
+  </div>
+    <button class='btn btn-success rounded d-flex flex-row-reverse'><%= link_to 'Réserver', new_brain_booking_path(@brain), class: "text-decoration-none text-dark"%></button>
+</div>
+</div>
