@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+20.times do
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Name.name)
+end
+
+30.times do
+  Brain.create!(name: Faker::Cannabis.cannabinoid, price: Faker::Number.number, address: Faker::Address.city, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude, user: User.all.sample)
+end
+
+20.times do
+  Booking.create!(confirmation: false, user: User.all.sample, brain: Brain.all.sample)
+end
