@@ -7,6 +7,7 @@
 <%= f.input :address%>
 <%= f.input :latitude%>
 <%= f.input :longitude%>
- <%= f.input :competence, collection: Brain::VALID_COMPETENCES, include_blank: "Choisir une compétence" %>
+<%= f.input :competence, collection: Brain::VALID_COMPETENCES, include_blank: "Choisir une compétence" %>
+<%= f.input :image, as: :file, label: "Ajouter une image" %>
 <%= f.submit%>
 <% end %>

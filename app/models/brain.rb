@@ -1,6 +1,9 @@
 class Brain < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  has_one_attached :image
+
+  validate :acceptable_image
 
   VALID_COMPETENCES = %w[Analyse Créativité Logique Mémoire Communication Apprentissage Gestion_émotionnelle]
 
@@ -11,4 +14,19 @@ class Brain < ApplicationRecord
   validates :address, presence: true
   validates :latitude, presence: true, numericality: true
   validates :longitude, presence: true, numericality: true
+
+  private
+
+  def acceptable_image
+    return unless image.attached?
+
+    unless image.byte_size <= 1.megabyte
+      errors.add(:image, "est trop volumineuse (maximum 1 Mo).")
+    end
+
+    acceptable_types = ["image/jpeg", "image/png"]
+    unless acceptable_types.include?(image.content_type)
+      errors.add(:image, "doit être un JPEG ou un PNG.")
+    end
+  end
 end
