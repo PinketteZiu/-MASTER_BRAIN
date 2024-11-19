@@ -25,10 +25,6 @@ class BrainsController < ApplicationController
     end
   end
 
-  # def my_brain
-  #   @brain = Brain.find_by(user_id: current_user.id)
-  # end
-
   def destroy
     @brain = Brain.find_by(user_id: current_user.id)
     @brain.destroy
@@ -37,11 +33,6 @@ class BrainsController < ApplicationController
   def set_brain
     @brain = Brain.find(params[:id])
   end
-
-  # def set_user
-  #   return unless session[:user_id]
-  #   @current_user ||= User.find_by(id: session[:user_id])
-  # end
 
   private
 

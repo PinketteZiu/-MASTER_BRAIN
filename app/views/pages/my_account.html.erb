@@ -1,0 +1,38 @@
+<h1>My Account</h1>
+
+%# DONNEE SUR L'USER %
+<p>Name : <%= current_user.first_name %></p>
+
+
+# MY BOOKINGS %
+<div>
+  <% @bookings.each do |booking|%>
+    <p>Location du brain : <%= booking.brain.name %></p>
+    <p>Numéro de réservation : <%= booking.id%></p>
+    <p>Date de début de location : <%= booking.start_date%></p>
+    <p>Date de fin de location : <%= booking.end_date%></p>
+  <% end %>
+</div>
+
+My offers
+
+<% @offers.each do |offer| %>
+  <p>Location du brain : <%= offer.brain.name %></p>
+  <p>Numéro de réservation : <%= offer.id%></p>
+  <p>Date de début de location : <%= offer.start_date%></p>
+  <p>Date de fin de location : <%= offer.end_date%></p>
+<% end %>
+
+# MY BRAIN
+  <div>
+    <% @brains.each do |brain|%>
+      <p> <%= brain.name%> </p>
+      <p> <%= brain.address%> </p>
+      <p> <%= brain.longitude%> </p>
+      <p> <%= brain.latitude%> </p>
+      <p> <%= brain.user_id%> </p>
+    <% end %>
+  </div>
+
+
+<% %>

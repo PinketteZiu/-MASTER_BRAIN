@@ -1,9 +1,10 @@
 class User < ApplicationRecord
-  has_many :bookings
-  has_many :brain
+  has_many :brains, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  has_many :offers, through: :brains, source: :bookings
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # ATTENTION REMETTRE HAS_ONE A LA FIN
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

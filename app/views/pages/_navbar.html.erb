@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/pages#home", class: "navbar-brand" do %>
+    <%= link_to home_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
@@ -12,18 +12,13 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Search", "#", class: "nav-link" %>
+            <%= link_to "Search", brains_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "My Bookings", "#", class: "nav-link" %>
-          </li>
-           <li class="nav-item active">
-            <%= link_to "Add", "#", class: "nav-link" %>
-          </li>
+
           <li class="nav-item dropdown">
             <%= image_tag "avatar.PNG", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Account", "#", class: "dropdown-item" %>
+              <%= link_to "My Account", my_account_path, class: "dropdown-item" %>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
               <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
