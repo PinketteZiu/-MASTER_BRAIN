@@ -7,7 +7,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 250px;
+  height: 150px;
   align-items: center;
   color: white;
   font-size: 20px;
@@ -15,6 +15,56 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 20% 20%;
+}
+.card-category-index {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 20% 10%;
+}
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+
+.card-trip img:hover {
+  background-color: #e8728a;
 }
 
 // Smallest device
