@@ -7,5 +7,6 @@
 <%= f.input :address%>
 <%= f.input :latitude%>
 <%= f.input :longitude%>
+ <%= f.input :competence, collection: Brain::VALID_COMPETENCES, include_blank: "Choisir une compétence" %>
 <%= f.submit%>
 <% end %>
