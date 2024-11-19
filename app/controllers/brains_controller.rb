@@ -1,5 +1,6 @@
 class BrainsController < ApplicationController
   before_action :set_brain, only: %i[show]
+  include Rails.application.routes.url_helpers
 
   def index
     @brains = Brain.all
@@ -37,6 +38,6 @@ class BrainsController < ApplicationController
   private
 
   def brain_params
-    params.require(:brain).permit(:name, :price, :address, :latitude, :longitude)
+    params.require(:brain).permit(:name, :price, :address, :latitude, :longitude, :competence)
   end
 end
