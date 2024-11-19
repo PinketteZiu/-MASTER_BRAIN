@@ -1,0 +1,132 @@
+// Specific CSS for your home-page
+.profil-page {
+  background-color: #E9E8C6;
+  border-radius: 25px;
+  margin-left : 100px;
+  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100wh;
+}
+
+.section-presentation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+
+.pic-profil{
+  width: 300px;
+  border-radius: 50%;
+}
+
+.presentation h2{
+  font-size: 130px;
+  font-weight: bold;
+  color: #E8728A;
+}
+
+.presentation p{
+  font-size: 36px;
+  font-weight: bold;
+  color: #4EE2B9;
+}
+
+.mybrain-title{
+border-radius: 35px;
+max-width: 900px;
+color: white;
+background-color: #E8728A;
+}
+
+.mybrain-title2{
+  border-radius: 35px;
+  max-width: 900px;
+  color: white;
+  background-color: #E8728A;
+  }
+
+  .mybrain-title3{
+    border-radius: 35px;
+    max-width: 900px;
+    color: white;
+    background-color: #E8728A;
+    }
+
+.mybrain h2{
+ margin-left: 20px;
+ text-align: start;
+}
+
+.mybrain{
+  margin: 20px;
+ }
+
+.brain-cards{
+  display: flex;
+}
+
+ .brain-card{
+  min-height: 260px;
+  width: 250px;
+  margin: 20px;
+  padding: 10px;
+  font-size: 10px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  align-items: center;
+ }
+
+ .card-image{
+  border-radius: 35px;
+ }
+
+ .card-image:hover{
+  background-color: #4EE2B9;
+ }
+
+ .brain-name{
+  height: 25px;
+  width: 230px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 55px;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+ }
+
+ .brain-name p{
+margin-top : auto;
+margin-bottom : auto;
+align-self: center;
+color : #75AEF1;
+ }
+
+ .brain-info {
+  width: 230px;
+  padding: 10px;
+  font-size: 10px;
+  border-radius: 15px;
+  background-color: #75AEF1;
+  position :absolute;
+  bottom: 0px;
+  color : white;
+ }
+
+ .brain-card-image {
+  background-position: center;
+  background-size: cover;
+  height : 170px;
+ }
+
+.card-image{
+  align-items: center;
+  text-align: center;
+}

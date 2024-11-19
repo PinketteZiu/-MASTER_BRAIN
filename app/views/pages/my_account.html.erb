@@ -1,38 +1,93 @@
-<h1>My Account</h1>
-
-%# DONNEE SUR L'USER %
-<p>Name : <%= current_user.first_name %></p>
-
-
-# MY BOOKINGS %
-<div>
-  <% @bookings.each do |booking|%>
-    <p>Location du brain : <%= booking.brain.name %></p>
-    <p>Numéro de réservation : <%= booking.id%></p>
-    <p>Date de début de location : <%= booking.start_date%></p>
-    <p>Date de fin de location : <%= booking.end_date%></p>
-  <% end %>
-</div>
-
-My offers
-
-<% @offers.each do |offer| %>
-  <p>Location du brain : <%= offer.brain.name %></p>
-  <p>Numéro de réservation : <%= offer.id%></p>
-  <p>Date de début de location : <%= offer.start_date%></p>
-  <p>Date de fin de location : <%= offer.end_date%></p>
-<% end %>
-
-# MY BRAIN
-  <div>
-    <% @brains.each do |brain|%>
-      <p> <%= brain.name%> </p>
-      <p> <%= brain.address%> </p>
-      <p> <%= brain.longitude%> </p>
-      <p> <%= brain.latitude%> </p>
-      <p> <%= brain.user_id%> </p>
-    <% end %>
+<div class="container profil-page">
+  <div class="section-presentation">
+    <div class="avatar">
+      <%= image_tag "avatar-profil.png", class: "pic-profil dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
+    <div class="presentation">
+      <h2>Mon Compte</h2>
+      <p><%= current_user.first_name%> <%=current_user.last_name%></p>
+    </div>
   </div>
 
+  <div class="mybrain">
+    <div class="mybrain-title">
+      <h2>Mes cerveau(x) disponible(s) à la location</h2>
+    </div>
+    <div class="brain-cards">
+      <% @brains.each do |brain|%>
+        <div class="brain-card">
+          <%= link_to brain_path(brain) do %>
+            <div class="card-image">
+              <%= image_tag "cerveau2.png", class: "brain-card-image", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+          <% end %>
 
-<% %>
+          <div class="brain-name">
+            <p><%= brain.name%></p>
+          </div>
+          <div class="brain-info">
+            <p>Adresse : <%= brain.address %> </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mybrain">
+    <div class="mybrain-title2">
+      <h2>Mes réservation(s) de cerveau(x)</h2>
+    </div>
+    <div class="brain-cards">
+
+      <% @bookings.each do |booking| %>
+        <div style="font-size: 10px; min-height: 260px; width: 250px; margin: 20px; padding: 10px;">
+
+          <%= link_to booking_path(booking) do %>
+            <div style="text-align: center;">
+              <%= image_tag "cerveau2.png", class: "brain-card-image", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </div>
+          <% end %>
+
+          <div style="color: rgb(117, 174, 241); font-size: 16px; font-weight: bold; text-align: center; vertical-align: middle;">
+            <%= booking.brain.name %>
+          </div>
+
+          <div style="padding: 10px; font-size: 10px; border-radius: 15px; color: white; background-color: #75AEF1;">
+            <div>Booking id : <%= booking.id %></div>
+            <div>Pick Up location : <%= booking.brain.address%></div>
+            <div>Date début : <%= booking.start_date%></div>
+            <div>Date fin : <%= booking.end_date%></div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="mybrain">
+    <div class="mybrain-title3">
+      <h2>Mes offres de location (de mon/mes cerveau(x))</h2>
+    </div>
+
+    <div class="brain-cards">
+      <% @offers.each do |offer| %>
+        <div class="brain-card">
+          <%= link_to booking_path(offer) do %>
+          <div class="card-image">
+            <%= image_tag "cerveau2.png", class: "brain-card-image", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          </div>
+          <% end %>
+          <div class="brain-name">
+            <p><%= offer.brain.name %></p>
+          </div>
+          <div class="brain-info">
+            <p>Booking id : <%= offer.id%></p>
+            <p>Date début : <%= offer.start_date%></p>
+            <p>Date fin : <%= offer.end_date%></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
