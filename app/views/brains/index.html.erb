@@ -1,88 +1,23 @@
 <div class="container">
   <h1>Tous nos cerveaux</h1>
 
-  <% @brains.each do |brain|%>
-    <h2> <%= brain.name%> </h2>
-    <p> <%= brain.address%> </p>
-    <p> <%= brain.longitude%> </p>
-    <p> <%= brain.latitude%> </p>
-    <p> <%= brain.user_id%> </p>
-  <% end %>
+  <div>
+    <iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-12.1728515625%2C37.89219554724437%2C8.393554687500002%2C48.647427805533546&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+  </div>
 
-  <%# <div id="map"></div> %>
-  <iframe id="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-12.1728515625%2C37.89219554724437%2C8.393554687500002%2C48.647427805533546&amp;layer=mapnik" style="border: 1px solid black"></iframe>
-
-
-  <div> filtre </div>
+  <div> FILTRE </div>
 
   <p><em> Dispo pour toi : </em></p>
-  <div class="cards">
-    <div class="card-trip">
-      <button class="btn-card" onclick="showBanner()"> <img src="app/assets/images/cerveau1.png" alt="brain1"> </button>
-        <div class="card-trip-infos">
-            <h2>Je suis bilingue japonais</h2>
-            <p>Langue étrangère</p>
+    <div class="cards">
+      <% @brains.each do |brain|%>
+        <div class="card-trip">
+          <%= link_to brain_path(brain), class: "text-decoration-none" do %>
+            <%= image_tag "cerveau1.png" %>
+            <h2><%= brain.name %> </h2>
+            <p><%= brain.address %> </p>
+            <p><%= brain.price %></p>
+          <% end %>
         </div>
+       <% end %>
     </div>
-
-    <div class="card-category-index" style="background-image: url(<%= asset_path 'cerveau2.png'%>)">
-      <p>Je suis un pro en Javascript</p>
-      <p>Informatique</p>
-    </div>
-
-    <div class="card-category-index" style="background-image: url(<%= asset_path 'cerveau3.png'%>)">
-      <p>Je suis l'égal d'Einstein</p>
-      <p>Physique</p>
-    </div>
-
-     <div class="card-category-index" style="background-image: url(<%= asset_path 'cerveau1.png'%>)">
-      <p>Je suis chanteur</p>
-      <p>Artiste</p>
-    </div>
-
-    <div class="card-category-index" style="background-image: url(<%= asset_path 'cerveau2.png'%>)">
-      <p>Je joue du piano</p>
-      <p>Artiste</p>
-    </div>
-
-    <div class="card-category-index" style="background-image: url(<%= asset_path 'cerveau3.png'%>)">
-      <p>Je suis un crac en math</p>
-      <p>Science</p>
-    </div>
-  </div>
-
-  <div class="banner-brain" id="banner-brain">
-    <div class="banner-content">
-      <div class="image">
-        <img src="https://via.placeholder.com/100" alt="Image">
-      </div>
-      <div class="text">
-        <p>This is the banner content. It contains some text on the right and an image on the left.</p>
-      </div>
-    </div>
-  </div>
-
 </div>
-
-<script>
-  // Function to display the banner when button is clicked
-  function showBanner() {
-    const banner = document.getElementById("banner-brain");
-    if (banner.style.display === "none" || banner.style.display === "") {
-      banner.style.display = "flex"; // Show the banner with flexbox layout
-    } else {
-      banner.style.display = "none"; // Hide the banner
-    }
-  }
-</script>
-
-  <%# <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoicGlua2V0dGV6aXUiLCJhIjoiY20zM2M2dzRxMWJ6cTJtczg5aWdmN2ljbyJ9.1KQ8_dbCSqNowOO_ZO1l2g';
-      const map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v9',
-          projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
-          zoom: 1,
-          center: [30, 15]
-      });
-  </script> %>
