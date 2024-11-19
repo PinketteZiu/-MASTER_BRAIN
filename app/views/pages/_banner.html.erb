@@ -7,12 +7,12 @@
     <div class='boutons d-flex justify-content-around align-content-end'>
         <div class='row'>
           <div class='col'>
-            <a class="btn btn-success btn-lg" href="#">Loue un cerveau</a>
+            <%= link_to 'Loue un cerveau', brains_path, class: 'btn btn-success btn-lg' %>
           </div>
           <div class='col'>
-            <a class="btn btn-success btn-lg" href="#">Propose un cerveau</a>
+            <%= link_to 'Propose un cerveau', new_brain_path, class: 'btn btn-success btn-lg' %>
           </div>
+        </div>
     </div>
-   </div>
   </div>
 </div>
