@@ -1,0 +1,33 @@
+.banner-brain {
+  display: none; /* Hidden by default */
+  background-color: #F4F4F4;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+  }
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+
+  .text {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .image {
+    margin-right: 20px;
+  }
+}
+
+.btn {
+  background-color: transparent;
+}
