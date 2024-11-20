@@ -10,21 +10,21 @@
   width: 100wh;
 }
 
-.section-presentation{
+.section-presentation {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Centre verticalement les éléments */
   margin: 20px;
+  padding-right: 150px;
 }
 
-
 .pic-profil{
-  width: 300px;
-  border-radius: 50%;
+  width: 200px;
+  border-radius: 50%;;
 }
 
 .presentation h2{
-  font-size: 130px;
+  margin-left: 280px;
+  font-size: 100px;
   font-weight: bold;
   color: #E8728A;
 }
@@ -37,7 +37,7 @@
 
 .mybrain-title{
 border-radius: 35px;
-max-width: 900px;
+max-width: 100%;
 color: white;
 background-color: #E8728A;
 }
@@ -62,7 +62,8 @@ background-color: #E8728A;
 }
 
 .mybrain{
-  margin: 20px;
+  width: 60%;
+  margin: 0px;
  }
 
 .brain-cards{
@@ -124,9 +125,83 @@ color : #75AEF1;
   background-position: center;
   background-size: cover;
   height : 170px;
+  border-radius: 30px;
  }
+
+ .brain-card-image:hover {
+  background-color: #4EE2B9;
+  animation: strobe 1s infinite, shake 0.5s infinite;
+ }
+
+@keyframes strobe {
+  0% { background-color: #4EE2B9; }
+  25% { background-color: #E7E064; }
+  50% { background-color: #E8728A; }
+  75% { background-color: #75AEF1; }
+  100% { background-color: #1C4859; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
 
 .card-image{
   align-items: center;
   text-align: center;
+}
+
+
+.section1{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.info-user{
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 100%; /* Occupe toute la largeur disponible du parent */
+  height: 100%; /* Occupe toute la hauteur disponible du parent */
+  border-radius: 30px;
+  background: linear-gradient(145deg, #4EE2B9, #3DAA9E); /* Couleur graduée avec #4EE2B9 comme couleur principale */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.7); /* Effet bombé */
+  padding: 20px;
+  box-sizing: border-box; /* Inclut le padding dans la largeur et la hauteur totales */
+  display: flex; /* Utilise le modèle de boîte flexible */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: space-between; /* Espace les éléments verticalement */
+  align-items: center; /* Centre les éléments horizontalement */
+  flex-grow: 1; /* Permet à la div de s'étendre pour occuper toute la hauteur disponible */
+}
+
+.info-user h3{
+  color: white;
+}
+
+.info-user-label {
+  max-width: 300px;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+  background: #E9E8C6;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.7); /* Effet incurvé intérieur */
+  color: #333; /* Couleur du texte */
+}
+
+.btn-password-modify{
+  color : #1C4859;
+  text-decoration: none;
+}
+
+.btn-password-modify:hover{
+  color: #E8728A;
 }
