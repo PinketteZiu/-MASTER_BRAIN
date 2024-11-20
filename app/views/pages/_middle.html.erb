@@ -1,19 +1,12 @@
-<h2 id='slogan'><em>" T'inquiète bichette, on a un cerveau pour toi! "</em></h2>
-<p><em>Derniers cerveaux pondus</em></p>
-
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'cerveau1.png'%>)">
-    <p>Japonais</p>
-    <p>Demander à Naruto</p>
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'cerveau2.png'%>)">
-    <p>Javascript</p>
-    <p>Demander à Gwendal</p>
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'cerveau3.png'%>)">
-    <p>Physique</p>
-    <p>Demander à Einstein</p>
-  </div>
+<div class="card-trip">
+  <%= link_to brain_path(brain), class: "text-decoration-none" do %>
+      <% if brain.image.attached? %>
+        <%= cl_image_tag brain.image.key %>
+      <% else %>
+        <%= image_tag("vignette8.PNG", alt: "Image de #{brain.competence}" ) %>
+      <% end %>
+    <h2><%= brain.name %> </h2>
+    <p><%= brain.address %> </p>
+    <p><%= brain.price %>€</p>
+  <% end %>
 </div>
