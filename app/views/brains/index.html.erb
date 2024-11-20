@@ -12,8 +12,8 @@
       <% @brains.each do |brain|%>
         <div class="card-trip">
           <%= link_to brain_path(brain), class: "text-decoration-none" do %>
-            <%= image_tag "cerveau1.png" %>
-             <%#= image_tag(@brain.image.attached? ? url_for(@brain.image) : "cerveau1.png", alt: "Image de #{@brain.competence}" ) %>
+            <%#= image_tag "cerveau1.png" %>
+             <%= image_tag(brain.image.attached? ? url_for(brain.image) : "cerveau1.png", alt: "Image de #{brain.competence}" ) %>
             <h2><%= brain.name %> </h2>
             <p><%= brain.address %> </p>
             <p><%= brain.price %></p>
