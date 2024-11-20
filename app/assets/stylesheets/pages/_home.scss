@@ -50,8 +50,18 @@
   }
 
 
+.cards {
+  min-height: 400px;
 
+  .card-category {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
 
 body{
-background-color: #e7e064
+background-color: #e7e064;
+min-height: 100vh;
+
 }
