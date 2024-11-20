@@ -1,0 +1,48 @@
+.form-container {
+  background-color: #E9E8C6;
+  border-radius: 25px;
+  margin: 20px auto;
+  padding: 0 20px 10px;
+  max-width: 600px;
+  max-height: 485px;
+
+  .form-scale {
+    scale: 0.8;
+  }
+  .form-scale-log-in {
+    scale: 0.9;
+  }
+
+  #user_email, #user_password, #user_password_confirmation, #user_last_name, #user_first_name {
+
+    &:focus {
+      box-shadow:  0 0 0.25rem rgb(231, 228, 156)!important;
+      border-color: rgb(246, 243, 160);
+    }
+
+  }
+
+  .log-in {
+    background-color: #e8728a!important;
+    border-color: #E8728A!important;
+      &:hover {
+        background-color: #d36279!important;
+      }
+  }
+
+}
+
+.link-style {
+  text-decoration: none;
+  color: #e18e9f;
+  margin-top: 20px;
+
+  &:hover {
+    color: #d36279;
+  }
+}
+
+h2 {
+  margin-top: 10px;
+  text-align: center;
+}
