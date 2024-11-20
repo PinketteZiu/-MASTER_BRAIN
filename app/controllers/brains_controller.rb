@@ -4,9 +4,22 @@ class BrainsController < ApplicationController
 
   def index
     @brains = Brain.all
+    @markers = @brains.geocoded.map do |brain|
+      {
+        lat: brain.latitude,
+        lng: brain.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { brain: brain })
+        # marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
+    @brain = Brain.find(params[:id])
+    @markers = [{
+      lat: @brain.latitude,
+      lng: @brain.longitude
+    }]
   end
 
   def new
