@@ -1,7 +1,7 @@
 .banner-brain {
   display: none; /* Hidden by default */
   background-color: #F4F4F4;
-  padding: 20px;
+  padding: 0px;
   margin-top: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -20,7 +20,7 @@
 
   .text {
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
   }
 
   .image {
@@ -30,4 +30,28 @@
 
 .btn-card {
   background-color: transparent;
+}
+
+.element-in-banner{
+  padding-left: 250px;
+}
+
+.btn-success{
+  color: white;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-success:hover{
+  color: #72e9c5;
+}
+
+.nav-link{
+  color: #1C4859;
+}
+
+.nav-link:hover{
+  color: #E8728A;
 }
