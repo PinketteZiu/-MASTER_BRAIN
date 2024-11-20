@@ -7,6 +7,7 @@
     <h2><%=@brain.name%> </h2>
     <p><%= @brain.address%> </p>
     <p><%= @brain.price%>€</p>
+    <p><%= @brain.competence%></p>
     <p><%= @brain.user.first_name%> <%= @brain.user.last_name%></p>
   </div>
     <button class='btn btn-success rounded d-flex flex-row-reverse'><%= link_to 'Réserver', new_brain_booking_path(@brain), class: "text-decoration-none text-dark"%></button>

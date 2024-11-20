@@ -1,29 +1,33 @@
-<div class="container">
-  <h1>Tous nos cerveaux</h1>
+<div class="container d-flex">
+  <div class="content flex-grow-1">
+    <h1>Tous nos cerveaux</h1>
 
-  <div> FILTRE </div>
+    <div> FILTRE </div>
 
-  <p><em> Dispo pour toi : </em></p>
-    <div class="cards">
-      <% @brains.each do |brain|%>
-        <div class="card-trip">
+    <p><em> Dispo pour toi : </em></p>
+    <div class="cards-index d-flex flex-wrap">
+      <% @brains.each do |brain| %>
+        <div class="card-index">
           <%= link_to brain_path(brain), class: "text-decoration-none" do %>
-              <% if brain.image.attached? %>
-                <%= cl_image_tag brain.image.key %>
-              <% else %>
-                <%= image_tag("cerveau1.png", alt: "Image de #{brain.competence}" ) %>
-              <% end %>
-            <h2><%= brain.name %> </h2>
-            <p><%= brain.address %> </p>
+            <% if brain.image.attached? %>
+              <%= cl_image_tag brain.image.key %>
+            <% else %>
+              <%= image_tag("cerveau1.png", alt: "Image de #{brain.competence}") %>
+            <% end %>
+            <h2><%= brain.name %></h2>
+            <p><%= brain.address %></p>
+            <p><%= brain.competence %></p>
             <p><%= brain.price %></p>
           <% end %>
         </div>
-       <% end %>
+      <% end %>
     </div>
-
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="map-container" style="width: 50%; height: 350px; position: sticky; top: 20px;">
+    <div style="width: 100%; height: 100%;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
