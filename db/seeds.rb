@@ -8,13 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
+VALID_COMPETENCES = %w[Analyse Créativité Logique Mémoire Communication Apprentissage Gestion_émotionnelle]
 
 20.times do
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Name.name)
 end
 
 30.times do
-  Brain.create!(name: Faker::Lorem.sentence, price: Faker::Number.number(3), address: Faker::Address.city, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude, user: User.all.sample)
+  Brain.create!(name: Faker::Lorem.sentence, price: Faker::Number.number, address: Faker::Address.city, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude, user: User.all.sample, competence: VALID_COMPETENCES.sample)
 end
 
 20.times do
