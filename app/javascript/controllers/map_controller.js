@@ -5,7 +5,8 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    disableInfoWindow: Boolean
   }
 
   connect() {
@@ -19,11 +20,19 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
 
+
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(this.map)
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+
+      const mapMarker = new mapboxgl.Marker()
+        .setLngLat([marker.lng, marker.lat])
+
+      if (!this.disableInfoWindowValue) {
+        mapMarker.setPopup(popup)
+      }
+
+      mapMarker.addTo(this.map)
     })
   }
 

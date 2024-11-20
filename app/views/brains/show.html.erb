@@ -10,11 +10,12 @@
     <p><%= @brain.competence%></p>
     <p><%= @brain.user.first_name%> <%= @brain.user.last_name%></p>
   </div>
-    <button class='btn btn-success rounded d-flex flex-row-reverse'><%= link_to 'Réserver', new_brain_booking_path(@brain), class: "text-decoration-none text-dark"%></button>
+    <button class='btn btn-success d-flex flex-row-reverse' style='border-radius: 6px'><%= link_to 'Réserver', new_brain_booking_path(@brain), class: "text-decoration-none text-dark"%></button>
 </div>
- <div style="width: 100%; height: 600px;"
+ <div style="width: 100%; height: 300px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-disable-info-window="true">
   </div>
 </div>
