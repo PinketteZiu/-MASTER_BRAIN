@@ -1,5 +1,6 @@
 <h1>Nouvelle réservation</h1>
-
+<div class="form-container">
+<div class="form-scale-log-in">
 <%= simple_form_for([@booking.brain, @booking]) do |f| %>
   <%= f.error_notification %>
 
@@ -13,9 +14,11 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Confirmer" %>
+    <%= f.button :submit, "Confirmer", class: "btn btn-primary log-in" %>
   </div>
 <% end %>
+</div>
+</div>
 
 <%= javascript_tag do %>
   document.addEventListener('DOMContentLoaded', function() {
