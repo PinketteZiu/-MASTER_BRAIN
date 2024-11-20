@@ -13,7 +13,8 @@
     scale: 0.9;
   }
 
-  #user_email, #user_password, #user_password_confirmation, #user_last_name, #user_first_name {
+  #user_email, #user_password, #user_password_confirmation, #user_last_name, #user_first_name,
+   #brain_name, #brain_price, #brain_address, #brain_competence, #brain_image{
 
     &:focus {
       box-shadow:  0 0 0.25rem rgb(231, 228, 156)!important;
@@ -42,7 +43,7 @@
   }
 }
 
-h2 {
+h1, h2 {
   margin-top: 10px;
   text-align: center;
 }
