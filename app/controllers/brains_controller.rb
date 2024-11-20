@@ -20,9 +20,9 @@ class BrainsController < ApplicationController
     Rails.logger.debug "Brain before save: #{@brain.inspect}"
     if @brain.save
       redirect_to brains_path
-    else
-      Rails.logger.debug "Brain save failed: #{@brain.errors.full_messages.join(', ')}"
-      render :new, status: :unprocessable_entity
+    # else
+    #   Rails.logger.debug "Brain save failed: #{@brain.errors.full_messages.join(', ')}"
+    #   render :new, status: :unprocessable_entity
     end
   end
 
@@ -38,6 +38,6 @@ class BrainsController < ApplicationController
   private
 
   def brain_params
-    params.require(:brain).permit(:name, :price, :address, :latitude, :longitude, :competence)
+    params.require(:brain).permit(:name, :price, :address, :latitude, :longitude, :competence, :image)
   end
 end
