@@ -1,22 +1,26 @@
 // Specific CSS for your home-page
+.body{
+  color : #1C4859;
+}
+
 .banner {
   background-size: cover;
   background-position: center;
-  min-height: 80vh;
+  min-height: 60vh;
   border-bottom: #72e9c5;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-style: solid;
-  padding-top: 50px;
+  padding-top: 20px;
   text-align: start;
 
   .titre {
-    width: 50%;
+    width: 90%;
 
   }
   h2 {
      margin: 0;
-     color: rgb(242, 71, 197);
-     text-shadow: 3px -2px 9px rgba(0, 0, 0, 1);
+     color: #ffffff;
+     text-shadow: 3px -2px 9px #E8728A;
      font-size: 31px;
      font-weight: bold;
 
@@ -24,9 +28,9 @@
 
    p {
       font-size: 20px;
-      color: rgb(242, 71, 197);
+      color: #ffffff;
       opacity: .7;
-      text-shadow: 3px -2px 9px rgba(0, 0, 0, 1);
+      text-shadow: 3px -2px 9px #E8728A;
       font-weight: bold;
 
     }
@@ -45,8 +49,9 @@
 
   #slogan {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 10px;
+    color : #1C4859;
   }
 
 

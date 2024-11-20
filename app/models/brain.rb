@@ -3,7 +3,7 @@ class Brain < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
 
-  validate :acceptable_image
+  # validate :acceptable_image
 
   VALID_COMPETENCES = %w[Analyse Créativité Logique Mémoire Communication Apprentissage Gestion_émotionnelle]
 
