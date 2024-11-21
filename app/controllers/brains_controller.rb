@@ -1,4 +1,5 @@
 class BrainsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_brain, only: %i[show]
   include Rails.application.routes.url_helpers
 
