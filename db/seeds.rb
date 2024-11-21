@@ -14,14 +14,24 @@ VALID_COMPETENCES = %w[Analyse Créativité Logique Mémoire Communication Appre
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Name.name)
 end
 
-30.times do
+100.times do
   latitude = rand(42..50)
   longitude = rand(0..9)
   geocoded_result = Geocoder.search([latitude, longitude]).first
-  address = geocoded_result ? geocoded_result.address : "Unknown address"
-  Brain.create!(name: Faker::Lorem.sentence, price: Faker::Number.number(digits: 2), address: address, latitude: latitude, longitude: longitude, user: User.all.sample, competence: VALID_COMPETENCES.sample)
+  if geocoded_result
+    address = geocoded_result.address
+    Brain.create!(
+      name: Faker::Lorem.sentence,
+      price: Faker::Number.number(digits: 2),
+      address: address,
+      latitude: latitude,
+      longitude: longitude,
+      user: User.all.sample,
+      competence: VALID_COMPETENCES.sample
+    )
+  end
 end
 
-20.times do
+50.times do
   Booking.create!(confirmation: false, user: User.all.sample, brain: Brain.all.sample, start_date: Faker::Date.forward(days: 15), end_date: Faker::Date.forward(days: 30))
 end
