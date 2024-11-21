@@ -9,7 +9,49 @@
 #   end
 require 'faker'
 VALID_COMPETENCES = %w[Analyse Créativité Logique Mémoire Communication Apprentissage Gestion_émotionnelle]
-
+PHRASES = [
+  "Analyse approfondie des données",
+  "Créativité et innovation",
+  "Logique et résolution de problèmes",
+  "Mémoire exceptionnelle",
+  "Communication efficace",
+  "Apprentissage rapide",
+  "Gestion émotionnelle",
+  "Travail d'équipe",
+  "Leadership inspirant",
+  "Adaptabilité et flexibilité",
+  "Gestion du temps",
+  "Prise de décision stratégique",
+  "Compétences interpersonnelles",
+  "Pensée critique",
+  "Résolution de conflits",
+  "Compétences en négociation",
+  "Gestion de projet",
+  "Compétences techniques",
+  "Esprit d'initiative",
+  "Orientation client",
+  "Gestion du stress",
+  "Développement web",
+  "Programmation en Ruby on Rails",
+  "Développement d'applications mobiles",
+  "Programmation en JavaScript",
+  "Conception de bases de données",
+  "Développement d'API",
+  "Programmation en Python",
+  "Programmation en Java",
+  "Programmation en C++",
+  "Programmation en PHP",
+  "Programmation en Swift",
+  "Programmation en Kotlin",
+  "Programmation en Go",
+  "Programmation en Rust",
+  "Programmation en TypeScript",
+  "Développement front-end",
+  "Développement back-end",
+  "Développement full-stack",
+  "Gestion de versions avec Git",
+  "Intégration continue et déploiement continu (CI/CD)"
+]
 20.times do
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Name.name)
 end
@@ -21,7 +63,7 @@ end
   if geocoded_result
     address = geocoded_result.address
     Brain.create!(
-      name: Faker::Lorem.sentence,
+      name: PHRASES.sample,
       price: Faker::Number.number(digits: 2),
       address: address,
       latitude: latitude,
