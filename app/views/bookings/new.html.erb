@@ -8,11 +8,11 @@
     <%= f.input :start_date,
             label: 'Date de début',
             as: :string,
-            input_html: { class: "flatpickr", data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker" } } %>
    <%= f.input :end_date,
             label: 'Date de fin',
             as: :string,
-            input_html: { class: "flatpickr", data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker" } } %>
   </div>
 
   <div class="form-actions">
@@ -21,13 +21,3 @@
 <% end %>
 </div>
 </div>
-
-<%= javascript_tag do %>
-  document.addEventListener('DOMContentLoaded', function() {
-    flatpickr('.flatpickr', {
-      mode: "range",
-      enableTime: true,
-      dateFormat: "Y-m-d H:i",
-    });
-  });
-<% end %>
