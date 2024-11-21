@@ -52,7 +52,7 @@
       <h3>Mes informations utilisateur</h3>
       <div class="info-user-label"><%= current_user.first_name %> <%= current_user.last_name %></div>
       <div class="info-user-label"><%= current_user.email %></div>
-      <div class="info-user-label"><%= link_to 'Modifier mon mot de passe', edit_user_registration_path, class: 'btn-password-modify' %></div>
+      <div class="info-user-label"><%= link_to 'Modifier mon mot de passe',   edit_user_password_path, class: 'btn-password-modify' %></div>
     </div>
 
 
