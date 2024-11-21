@@ -32,9 +32,9 @@
 //   background-color: transparent;
 // }
 
-// .element-in-banner{
-//   padding-left: 250px;
-// }
+.element-in-banner{
+  padding-left: 250px;
+}
 
 .btn-success{
   color: white;
@@ -43,6 +43,7 @@
   justify-content: center;
   align-items: center;
 }
+
 
 .btn-success:hover{
   color: #72e9c5;
@@ -62,7 +63,57 @@
 // }
 
 .card-index {
-  flex: 1;
+  flex: 1 1 45%; /* Adjust the width to ensure two cards per row */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: auto; /* Adjust the height as needed */
+  position: relative; /* Necessary for the pseudo-elements */
+  overflow: hidden; /* Hide overflow for the pseudo-elements */
+  transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition for smooth effect */
+}
+
+.card-index::before, .card-index::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ensure the pseudo-elements don't interfere with interactions */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card-index::before {
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 70%);
+}
+
+.card-index::after {
+  background: radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 70%);
+}
+
+@keyframes frost {
+  0% { background-color: rgba(255, 255, 255, 0); }
+  50% { background-color: rgba(255, 255, 255, 0.7); }
+  100% { background-color: rgba(255, 255, 255, 0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.card-index:hover::before, .card-index:hover::after {
+  opacity: 1;
+}
+
+.card-index:hover {
+  animation: shake 0.5s ease-in-out;
 }
 
 .map-container {
@@ -70,6 +121,11 @@
   height: 600px;
   position: sticky;
   top: 10;
+  padding: 20px;
+  border-radius: 30px;
+  background-color: #E8728A;
+  margin-top: 100px;
+  margin-left: 40px;
 }
 
 
@@ -90,15 +146,6 @@
 .cards-index {
   display: flex;
   flex-wrap: wrap;
-}
-
-.card-index {
-  flex: 1 1 45%; /* Adjust the width to ensure two cards per row */
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  height: auto; /* Adjust the height as needed */
 }
 
 .card-index {
@@ -157,4 +204,12 @@
   height: 350px;
   position: sticky;
   top: 20px;
+}
+
+
+.center-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
 }
