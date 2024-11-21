@@ -8,10 +8,6 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:show]
 
-  # namespace :account do
-  #   resources :bookings, only: [:index]
-  #   resources :offers, only: [:index]
-  # end
 
   get "my_account", to: "pages#my_account"
 

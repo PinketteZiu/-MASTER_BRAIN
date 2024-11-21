@@ -1,21 +1,32 @@
-<h1>Creation de cerveau</h1>
+<h1>Création de cerveau</h1>
 
 <div class="form-container">
   <div class="form-scale-log-in">
-  <%= simple_form_for (@brain) do |f|%>
-
-  <div class="form-inputs">
-  <%= f.input :name%>
-  <%= f.input :price%>
-  <%= f.input :address%>
-  <%# <%= f.input :latitude%>
-  <%# <%= f.input :longitude%>
-  <%= f.input :competence, collection: Brain::VALID_COMPETENCES, include_blank: "Choisir une compétence" %>
-  <%= f.input :image, as: :file, label: "Ajouter une image" %>
-  </div>
-    <div class="form-actions">
-    <%= f.button :submit, "Create Brain", class: "btn btn-primary log-in" %>
-  </div>
-  <% end %>
+    <%= simple_form_for (@brain) do |f|%>
+      <div class="form-inputs">
+        <%= f.input :name, label: "Titre de l'annonce"%>
+        <%= f.input :price, label: "Tarif"%>
+        <%= f.input :address, label: "Localisation du cerveau",
+                  input_html: {
+                    data: {
+                      address_autocomplete_target: "address",
+                    },
+                    class: "d-none"
+                  },
+                  wrapper_html: {
+                    data: {
+                      controller: "address-autocomplete",
+                      address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
+                    },
+                    id: "autocomplete-input"
+                  }
+        %>
+        <%= f.input :competence, label: "Compétence", collection: Brain::VALID_COMPETENCES, include_blank: "Choisir une compétence" %>
+        <%= f.input :image, as: :file, label: "Ajouter une image" %>
+        </div>
+          <div class="form-actions">
+          <%= f.button :submit, "Créer le cerveau", class: "btn btn-primary log-in" %>
+        </div>
+    <% end %>
   </div>
 </div>
