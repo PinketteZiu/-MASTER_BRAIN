@@ -15,8 +15,8 @@ VALID_COMPETENCES = %w[Analyse Créativité Logique Mémoire Communication Appre
 end
 
 30.times do
-  latitude = Faker::Address.latitude
-  longitude = Faker::Address.longitude
+  latitude = rand(42..50)
+  longitude = rand(0..9)
   geocoded_result = Geocoder.search([latitude, longitude]).first
   address = geocoded_result ? geocoded_result.address : "Unknown address"
   Brain.create!(name: Faker::Lorem.sentence, price: Faker::Number.number(digits: 2), address: address, latitude: latitude, longitude: longitude, user: User.all.sample, competence: VALID_COMPETENCES.sample)
