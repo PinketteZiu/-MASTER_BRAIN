@@ -1,3 +1,30 @@
-<h1>This Booking</h1>
+<div class="mybrain-title4">
+  <h2>Votre réservation</h2>
+</div>
 
-<% %>
+<div class="booking-message">
+  <div><strong>F E L I C I T A T I O N S !!   </strong>vous venez de réserver un cerveau juteux de qualité!</div>
+  <div class="info-resa">
+  <div>Informations sur la réservation :
+    <ul>
+      <li>Identifiant de réservation : </li>
+      <li>Cerveau réservé : </li>
+      <li>Point de rendez-vous pour l'enlèvement et retour : </li>
+    </ul>
+
+  </div>
+</div>
+
+  <div> Statut de la réservation : </div>
+  <div class="statut-btn">
+    <%= @statut %>
+  </div>
+
+
+  <%= link_to brains_path, class: "text-decoration-none fs-6 text-reset" do %>
+        <div>continue tes emplettes</div>
+  <% end %>
+
+</div>
+
+<div class="lightning"></div>

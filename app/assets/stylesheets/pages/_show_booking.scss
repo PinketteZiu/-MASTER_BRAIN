@@ -1,0 +1,118 @@
+
+@keyframes lightning-left {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(45deg);
+  }
+  20%, 80% {
+    opacity: 0;
+    transform: translateX(50%) translateY(50%) rotate(45deg);
+  }
+  30%, 70% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+  40%, 60% {
+    opacity: 0;
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(45deg);
+  }
+}
+
+@keyframes lightning-right {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(100%) translateY(-100%) rotate(-45deg);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(-45deg);
+  }
+  20%, 80% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(50%) rotate(-45deg);
+  }
+  30%, 70% {
+    opacity: 1;
+    transform: translateX(50%) translateY(-50%) rotate(-45deg);
+  }
+  40%, 60% {
+    opacity: 0;
+    transform: translateX(-100%) translateY(100%) rotate(-45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(-45deg);
+  }
+}
+
+.lightning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lightning::before, .lightning::after {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+}
+
+.lightning::before {
+  left: -50%;
+  animation: lightning-left 2s infinite;
+}
+
+.lightning::after {
+  right: -50%;
+  animation: lightning-right 2s infinite;
+}
+
+
+.booking-message{
+  margin-top: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 40px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #1C4859;
+  background-color : #E9E8C6;
+}
+
+.info-resa{
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.statut-btn{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #75AEF1;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  height: 50px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
