@@ -32,6 +32,26 @@
       }
   }
 
+  .cancel-class {
+    display: flex;
+    align-items: center;
+
+    button {
+    color: #E8728A!important;
+    border-color: #E8728A!important;
+    scale: 0.8;
+      &:hover {
+        background-color: #d36279!important;
+        color: white!important;
+      }
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
 }
 
 .link-style {
