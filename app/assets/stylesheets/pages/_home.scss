@@ -1,6 +1,9 @@
 .body{
   color : #1C4859;
-}
+  background-color: #e7e064;
+  min-height: 100vh;
+  }
+
 .banner {
   background-size: cover;
   background-position: center;
@@ -14,6 +17,7 @@
     width: 90%;
   }
   h2 {
+
      margin: 0;
      color: #FFFFFF;
      text-shadow: 3px -2px 9px #E8728A;
@@ -48,8 +52,4 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-}
-body{
-background-color: #E7E064;
-min-height: 100vh;
 }
