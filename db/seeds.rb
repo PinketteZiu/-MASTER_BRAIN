@@ -15,9 +15,13 @@ VALID_COMPETENCES = %w[Analyse Créativité Logique Mémoire Communication Appre
 end
 
 30.times do
-  Brain.create!(name: Faker::Lorem.sentence, price: Faker::Number.number, address: Faker::Address.city, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude, user: User.all.sample, competence: VALID_COMPETENCES.sample)
+  latitude = rand(42..50)
+  longitude = rand(0..9)
+  geocoded_result = Geocoder.search([latitude, longitude]).first
+  address = geocoded_result ? geocoded_result.address : "Unknown address"
+  Brain.create!(name: Faker::Lorem.sentence, price: Faker::Number.number(digits: 2), address: address, latitude: latitude, longitude: longitude, user: User.all.sample, competence: VALID_COMPETENCES.sample)
 end
 
 20.times do
-  Booking.create!(confirmation: false, user: User.all.sample, brain: Brain.all.sample)
+  Booking.create!(confirmation: false, user: User.all.sample, brain: Brain.all.sample, start_date: Faker::Date.forward(days: 15), end_date: Faker::Date.forward(days: 30))
 end
