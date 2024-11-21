@@ -1,3 +1,4 @@
+
 <h2>Modifie <%= resource_name.to_s.humanize %></h2>
 <div class="form-container">
 <div class="form-scale-log-in">
@@ -12,29 +13,35 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :current_password,
+                label: "Mot de passe",
+                hint: "Ton mot de passe actuel",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                label: "Nouveau mot de passe",
+                hint: "Laisse vide si tu ne veux pas changer de mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                label: "Confirme ton nouveau mot de passe",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
+</div>
 
+  <div class="form-actions">
+    <%= f.button :submit, "Modifier" %>
+  </div>
+<% end %>
   <div class="button-container">
     <div class="form-actions">
       <%= f.button :submit, "Update", class: "btn btn-primary log-in" %>
     </div>
-
     <div class="cancel-class">
       <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-primary" %>
     </div>
-
   </div>
 <% end %>
 </div>
 </div>
+
