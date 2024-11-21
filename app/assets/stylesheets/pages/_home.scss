@@ -3,6 +3,11 @@
   color : #1C4859;
 }
 
+body{
+  background-color: #e7e064;
+  min-height: 100vh;
+  }
+  
 .banner {
   background-size: cover;
   background-position: center;
@@ -89,8 +94,3 @@
       color: white;
     }
   }
-
-body{
-background-color: #e7e064;
-min-height: 100vh;
-}

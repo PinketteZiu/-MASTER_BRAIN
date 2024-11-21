@@ -17,6 +17,7 @@
 
   <body>
     <%= render 'pages/navbar' %>
+    <%= render "shared/flashes" %>
     <div class="main-content">
       <%= yield %>
     </div>
@@ -24,5 +25,3 @@
     <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/flatpickr' %>
   </body>
 </html>
-
-<%# comment %>
