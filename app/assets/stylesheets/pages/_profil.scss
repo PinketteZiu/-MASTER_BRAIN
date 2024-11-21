@@ -19,7 +19,18 @@
 
 .pic-profil{
   width: 200px;
-  border-radius: 50%;;
+  border-radius: 50%;
+  transition: transform 0.5s ease-in-out; /* Transition pour un effet plus fluide */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pic-profil:hover {
+  animation: spin 1s infinite; /* Applique l'animation de rotation */
 }
 
 .presentation h2{
@@ -62,12 +73,18 @@ background-color: #E8728A;
 }
 
 .mybrain{
-  width: 60%;
+  width: 100%;
   margin: 0px;
+  min-height: 500px;
+  overflow: auto;
  }
 
 .brain-cards{
   display: flex;
+  // flex-wrap: wrap; /* Permet aux enfants de se répartir sur plusieurs lignes si nécessaire */
+  // max-width: 800px;
+  overflow: auto; /* Cache le débordement des enfants */
+  /* Vous pouvez utiliser overflow: auto si vous préférez afficher une barre de défilement */
 }
 
  .brain-card{
@@ -148,6 +165,8 @@ color : #75AEF1;
   75% { transform: translateX(-5px); }
 }
 
+
+
 .card-image{
   align-items: center;
   text-align: center;
@@ -158,13 +177,14 @@ color : #75AEF1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 300px;
 }
 
 
 .info-user{
   margin-left: 50px;
   margin-right: 50px;
-  width: 100%; /* Occupe toute la largeur disponible du parent */
+  max-width: 500px; /* Occupe toute la largeur disponible du parent */
   height: 100%; /* Occupe toute la hauteur disponible du parent */
   border-radius: 30px;
   background: linear-gradient(145deg, #4EE2B9, #3DAA9E); /* Couleur graduée avec #4EE2B9 comme couleur principale */
