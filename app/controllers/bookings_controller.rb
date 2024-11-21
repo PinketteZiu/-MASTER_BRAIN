@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   # end
 
   def show
+    @statut = @booking.confirmation ? "Confirmé" : "En attente"
   end
 
   def set_booking
@@ -25,7 +26,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.brain = Brain.find(params[:brain_id])
     if @booking.save
-      redirect_to brain_path(@booking.brain)
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
