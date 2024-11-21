@@ -1,9 +1,6 @@
 // Specific CSS for your home-page
 .body{
   color : #1C4859;
-}
-
-body{
   background-color: #e7e064;
   min-height: 100vh;
   }
@@ -13,19 +10,22 @@ body{
   background-position: center;
   min-height: 60vh;
   border-bottom: #72e9c5;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-style: solid;
   padding-top: 20px;
   text-align: start;
 
   .titre {
     width: 90%;
-  }
 
+  }
   h2 {
      margin: 0;
      color: #ffffff;
      text-shadow: 3px -2px 9px #E8728A;
      font-size: 31px;
      font-weight: bold;
+
    }
 
    p {
@@ -34,16 +34,19 @@ body{
       opacity: .7;
       text-shadow: 3px -2px 9px #E8728A;
       font-weight: bold;
-    }
 
+    }
     .rent-a-brain, .add-a-brain {
       margin: 60px 0;
     }
+
 
     .left-btn, .right-btn {
       transition: 0.8s ease;
       width: 230px!important;
     }
+
+
   }
 
   #slogan {
@@ -53,44 +56,12 @@ body{
     color : #1C4859;
   }
 
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    margin: 20px;
-    place-items: center;
-    :hover {
-      background-color: #e8728a;
-    }
-  }
 
-  .card-trip {
-    min-width: 300px;
-    overflow: hidden;
-    border-radius: 20px;
-    background: #4EE2BD;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.cards {
+  min-height: 400px;
 
-    img {
-      height: 150px;
-      width: 100%;
-      object-fit: contain;
-    }
-
-    h2 {
-      font-size: 18px;
-      font-weight: bold;
-      margin: 10px 10px;
-      padding-inline-start: 20px;
-      writing-mode: horizontal-tb;
-      color: white;
-    }
-
-    p {
-      font-size: 16px;
-      opacity: .7;
-      margin: 10px;
-      padding-inline-start: 20px;
-      color: white;
-    }
+  .card-category {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }

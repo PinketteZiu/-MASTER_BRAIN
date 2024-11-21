@@ -1,10 +1,11 @@
+<div class="mybrain-title2 center-title">
+  <h2>Découvre tous les cerveaux disponibles à la location!</h2>
+</div>
+
 <div class="container d-flex">
   <div class="content flex-grow-1">
-    <h1>Tous nos cerveaux</h1>
 
-    <div> FILTRE </div>
 
-    <p><em> Dispo pour toi : </em></p>
     <div class="cards-index d-flex flex-wrap">
       <% @brains.each do |brain| %>
         <div class="card-index">
@@ -17,7 +18,7 @@
             <h2><%= brain.name %></h2>
             <p><%= brain.address %></p>
             <p><%= brain.competence %></p>
-            <p><%= brain.price %></p>
+            <p><%= brain.price %> € de l'heure</p>
           <% end %>
         </div>
       <% end %>
