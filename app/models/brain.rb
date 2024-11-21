@@ -1,7 +1,14 @@
 class Brain < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_name_competence_and_address,
+  against: [:name, :competence, :address],
+  using: {
+    tsearch: { prefix: true }
+  }
   has_one_attached :image
   belongs_to :user
   has_many :bookings, dependent: :destroy
+
 
   # validate :acceptable_image
 
@@ -17,6 +24,22 @@ class Brain < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  scope :nearby, ->(latitude, longitude, distance_in_km = 150 ) {
+    near([latitude, longitude], distance_in_km, units: :km)
+  }
+
+  def self.search(query)
+    brains = search_by_name_competence_and_address(query)
+    if brains.empty?
+      geocoded_result = Geocoder.search(query).first
+      if geocoded_result
+        latitude = geocoded_result.latitude
+        longitude = geocoded_result.longitude
+        brains = nearby(latitude, longitude)
+      end
+    end
+    brains
+  end
 
   private
 
