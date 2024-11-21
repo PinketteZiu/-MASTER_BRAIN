@@ -93,39 +93,37 @@
     </div>
   </div>
 
-  <div class="mybrain">
-    <div class="mybrain-title3">
-      <h2>Mes offres de location</h2>
-    </div>
+<div class="mybrain">
+  <div class="mybrain-title3">
+    <h2>Mes demandes de location</h2>
+  </div>
 
-
-<div class="brain-cards">
-
-      <% @offers.each do |offer| %>
-        <div style="font-size: 12px; min-height: 260px; width: 250px; margin: 20px; padding: 10px;">
-
-            <div style="text-align: center;">
-                <% if offer.brain.image.attached? %>
-                <%= cl_image_tag offer.brain.image.key, class: "brain-card-image", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else %>
-                <%= image_tag(src="cerveau1.png",class: "brain-card-image", alt: "Image de #{offer.brain.competence}" ) %>
-              <% end %>
-            </div>
-
-
-          <div style="color: rgb(117, 174, 241); font-size: 15px; font-weight: bold; text-align: center; vertical-align: middle;">
-            <%= offer.brain.name %>
-          </div>
-
-          <div style="padding: 10px; font-size: 12px; border-radius: 15px; color: #1C4859; background-color: #75AEF1;">
-            <div>Booking id : <%= offer.id%></div>
-            <div>Date début : <%= offer.start_date%></div>
-            <div>Date fin : <%= offer.end_date%></div>
+  <div class="brain-cards">
+    <% @offers.each do |offer| %>
+      <div style="font-size: 12px; min-height: 260px; width: 250px; margin: 20px; padding: 10px;">
+        <div style="text-align: center;">
+          <% if offer.brain.image.attached? %>
+            <%= cl_image_tag offer.brain.image.key, class: "brain-card-image", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag("cerveau1.png", class: "brain-card-image", alt: "Image de #{offer.brain.competence}") %>
+          <% end %>
+        </div>
+        <div style="color: rgb(117, 174, 241); font-size: 15px; font-weight: bold; text-align: center; vertical-align: middle;">
+          <%= offer.brain.name %>
+        </div>
+        <div style="padding: 10px; font-size: 12px; border-radius: 15px; color: #1C4859; background-color: #75AEF1;">
+          <div>Booking id : <%= offer.id %></div>
+          <div>Pick Up location : <%= offer.brain.address %></div>
+          <div>Date début : <%= offer.start_date %></div>
+          <div>Date fin : <%= offer.end_date %></div>
+          <div>
+            <%= link_to 'Valider la demande', validate_booking_path(offer), method: :patch, class: 'btn btn-success' %>
           </div>
         </div>
-      <% end %>
-
-    </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 
 
