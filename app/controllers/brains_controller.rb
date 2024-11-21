@@ -4,7 +4,11 @@ class BrainsController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def index
-    @brains = Brain.all
+    if params[:query].present?
+      @brains = Brain.search(params[:query])
+    else
+      @brains = Brain.all
+    end
     @markers = @brains.geocoded.map do |brain|
       {
         lat: brain.latitude,
