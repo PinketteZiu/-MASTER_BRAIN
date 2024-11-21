@@ -24,7 +24,7 @@ class Brain < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  scope :nearby, ->(latitude, longitude, distance_in_km = 65 ) {
+  scope :nearby, ->(latitude, longitude, distance_in_km = 150 ) {
     near([latitude, longitude], distance_in_km, units: :km)
   }
 
