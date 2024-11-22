@@ -91,6 +91,7 @@ background-color: #E8728A;
 
 .brain-cards{
   display: flex;
+  flex-direction: row!important; /* Les enfants sont alignés horizontalement */
   // flex-wrap: wrap; /* Permet aux enfants de se répartir sur plusieurs lignes si nécessaire */
   // max-width: 800px;
   overflow: auto; /* Cache le débordement des enfants */

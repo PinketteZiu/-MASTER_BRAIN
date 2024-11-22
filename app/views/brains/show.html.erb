@@ -7,7 +7,11 @@
 <div class='container' >
 
 <div class="card-product" >
-  <%= image_tag 'cerveau2' %>
+  <% if @brain.image.attached? %>
+                <%= cl_image_tag @brain.image.key, id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag(src="cerveau1.png", alt: "Image de #{@brain.competence}" ) %>
+              <% end %>
   <div class="card-product-infos">
     <h2><%=@brain.name%> </h2>
     <p><%= @brain.address%> </p>
