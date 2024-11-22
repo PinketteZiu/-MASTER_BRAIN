@@ -34,11 +34,12 @@ class BookingsController < ApplicationController
   end
 
   def validate_booking
-    raise
+
+    # @bookings = Booking.joins(:brain).where(brains: { user_id: @user.id })
     @booking = Booking.find(params[:id])
     @booking.confirmation = true
     @booking.save
-    redirect_to my_account_path, notice: 'La demande de location a été validée.'
+    redirect_to booking_path, notice: 'La demande de location a été validée.'
   end
 
   private
