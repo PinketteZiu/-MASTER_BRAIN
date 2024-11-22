@@ -6,7 +6,15 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
+  put 'bookings/:id', to: 'bookings#validate_booking', as: :validate_booking
   resources :bookings, only: [:show]
+
+
+  resources :users, only: [] do
+    member do
+      get 'my_account'
+    end
+  end
 
 
   get "my_account", to: "pages#my_account"

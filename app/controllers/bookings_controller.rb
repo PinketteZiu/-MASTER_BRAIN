@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   # end
 
   def show
+    @booking = Booking.find(params[:id])
     @statut = @booking.confirmation ? "Confirmé" : "En attente"
   end
 
@@ -30,6 +31,15 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def validate_booking
+
+    # @bookings = Booking.joins(:brain).where(brains: { user_id: @user.id })
+    @booking = Booking.find(params[:id])
+    @booking.confirmation = true
+    @booking.save
+    redirect_to booking_path, notice: 'La demande de location a été validée.'
   end
 
   private
