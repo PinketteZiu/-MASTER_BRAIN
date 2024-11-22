@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.brain = Brain.find(params[:brain_id])
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking), notice: "Demande de réservation effectuée avec succès"
     else
       render :new, status: :unprocessable_entity
     end
