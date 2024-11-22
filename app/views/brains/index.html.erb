@@ -45,3 +45,16 @@
     </div>
   </div>
 </div>
+<% if notice %>
+  <div id="notice"><%= notice %></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        const notice = document.getElementById('notice');
+        if (notice) {
+          notice.style.display = 'none';
+        }
+      }, 5000); // 5000 millisecondes = 5 secondes
+    });
+  </script>
+<% end %>

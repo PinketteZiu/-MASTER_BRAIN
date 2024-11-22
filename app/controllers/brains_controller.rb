@@ -37,10 +37,10 @@ class BrainsController < ApplicationController
     @brain.user_id = current_user.id
     Rails.logger.debug "Brain before save: #{@brain.inspect}"
     if @brain.save
-      redirect_to brains_path
-    # else
-    #   Rails.logger.debug "Brain save failed: #{@brain.errors.full_messages.join(', ')}"
-    #   render :new, status: :unprocessable_entity
+      redirect_to brains_path, notice: "Cerveau créé avec succès 👌"
+    else
+      Rails.logger.debug "Brain save failed: #{@brain.errors.full_messages.join(', ')}"
+      render :new, status: :unprocessable_entity
     end
   end
 

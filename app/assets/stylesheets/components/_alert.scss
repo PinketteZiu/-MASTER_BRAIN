@@ -1,3 +1,11 @@
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .alert {
   position: fixed;
   bottom: 50px;
@@ -6,4 +14,6 @@
   color: #E7E064;
   border-radius: 10px;
   background-color: #1C4859;
+  animation: fadeOut 4s forwards;
+  animation-delay: 2s;
 }
