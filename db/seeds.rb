@@ -53,9 +53,8 @@ PHRASES = [
   "Intégration continue et déploiement continu (CI/CD)"
 ]
 
-IMAGE_PATHS = Dir[Rails.root.join('app/assets/images/**/*.{png,jpg,jpeg}')]
-              .select { |path| path =~ /vignette|cerveau/ }
-              .map { |path| path.sub("#{Rails.root}/app/assets/images/", '') }
+IMAGE_PATHS = Dir[Rails.root.join('app/assets/images/avatars/**/*.{png,jpg,jpeg}')]
+
 20.times do
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Name.name)
 end
@@ -74,7 +73,7 @@ end
       longitude: longitude,
       user: User.all.sample,
       competence: VALID_COMPETENCES.sample,
-      image: Rails.root.join('app/assets/images', IMAGE_PATHS.sample).open
+      image: Rails.root.join(IMAGE_PATHS.sample).open
     )
   end
 end
