@@ -47,6 +47,7 @@ class BrainsController < ApplicationController
   def destroy
     @brain = Brain.find_by(user_id: current_user.id)
     @brain.destroy
+    redirect_to my_account_path, notice: 'Le cerveau a été supprimé avec succès.'
   end
 
   def set_brain

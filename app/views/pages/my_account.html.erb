@@ -40,7 +40,13 @@
 
           <div style="padding: 10px; font-size: 12px; border-radius: 15px; color: #1C4859; background-color: #75AEF1;">
             <div>Adresse : <%= brain.address %></div>
+              <div>Prix : <%= brain.price %>€</div>
+              <div>Compétence : <%= brain.competence %></div>
+          <div style="text-align: center; margin-top: 10px;">
+            <%= button_to 'Supprimer', brain_path(brain), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce cerveau?' }, class: ' btn cancel-class' %>
           </div>
+            </div>
+
         </div>
       <% end %>
 
