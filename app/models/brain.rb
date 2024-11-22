@@ -8,7 +8,7 @@ class Brain < ApplicationRecord
   has_one_attached :image
   belongs_to :user
   has_many :bookings, dependent: :destroy
-
+  has_one_attached :image
 
   # validate :acceptable_image
 
