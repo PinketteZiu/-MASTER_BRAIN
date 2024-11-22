@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.confirmation = true
     @booking.save
-    redirect_to booking_path, notice: 'La demande de location a été validée.'
+    redirect_to my_account_path, notice: 'La demande de location a été validée.'
   end
 
   private
