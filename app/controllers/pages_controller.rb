@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @brains = Brain.all
+    @brains = Brain.all.last(4)
   end
 
   def my_account
