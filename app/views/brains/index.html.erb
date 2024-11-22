@@ -2,8 +2,8 @@
   <h2>Découvre tous les cerveaux disponibles à la location!</h2>
 </div>
 
-
-<div class="row justify-content-center">
+<div class='container'>
+<div class="row justify-content-left">
   <div class="col-sm-8 my-3">
     <%= form_with url: brains_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
@@ -45,16 +45,3 @@
     </div>
   </div>
 </div>
-<% if notice %>
-  <div id="notice"><%= notice %></div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        const notice = document.getElementById('notice');
-        if (notice) {
-          notice.style.display = 'none';
-        }
-      }, 5000); // 5000 millisecondes = 5 secondes
-    });
-  </script>
-<% end %>
